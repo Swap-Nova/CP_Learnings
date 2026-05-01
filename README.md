@@ -1,43 +1,83 @@
-## Explanation
-- In this question, the goal is to take the rat from source to destination.
-- But there are certain conditions:
-<ol>
-  <li> '0' represents a blocked cell through which the rat cannot travel. </li>
-  
-  ```cpp
-  int source_x = 0;
-  int source_y = 0;
-  int destination_x = n-1;
-  int destination_y = n-1;
-  ```
+## 📌 Solved Problems & Approaches
 
-  <li> The rat at a position can only travel: left, right, up, down</li>
-  <li> The rat cannot return to the same position more than once</li>
+### 🔹 `dnc_merge_sort_recursion.cpp`
 
-  ```cpp
-  // already visited
-  if(visited[new_x][new_y] == true){
-      return false;
-  }
-```
+**Problem:** Merge Sort using recursion
+**Approach:** Divide the array into halves recursively, then merge sorted halves.
+**Pattern:** Divide & Conquer
+**Key Idea:** Split → Sort → Merge
 
-  <li>If the source position is 0, then return an empty list</li>
-</ol>
+---
 
-## Solution
-- To track the movement of the visit status we have to use a Boolean array for every recursive call.
-- Once we find the base case, we recursively return to the element covered in the solution.
-- While going up, we must ensure that the Boolean array now marked to 'True' is turned back to 'False.'
+### 🔹 `merge_two_sorted_array.cpp`
 
-```cpp
-/* recursion case: up, down, left, right */
-// case-1: up- (i-1, j)
-int new_x = source_x - 1;
-int new_y = source_y;
-if(isSafe(new_x, new_y, mat, visited, n)){
-    visited[new_x][new_y] = true;
-    solve(mat,visited,n,ans,new_x,new_y,destination_x,destination_y,output+"U");
-    // backtracking: we have to mark the visited part back as false
-    visited[new_x][new_y] = false;
-}
-```
+**Problem:** Merge two sorted arrays
+**Approach:** Use two pointers to compare elements and build a merged sorted array.
+**Pattern:** Two Pointers
+**Key Idea:** Increment pointer of smaller element
+
+---
+
+### 🔹 `lc_33_rotated_array.cpp`
+
+**Problem:** Search in Rotated Sorted Array
+**Approach:** Modified Binary Search by identifying sorted half in each step.
+**Pattern:** Binary Search Variant
+**Key Idea:** One half is always sorted
+
+---
+
+### 🔹 `lc_724_pivot_idx.cpp`
+
+**Problem:** Find Pivot Index
+**Approach:** Compute total sum, then iterate while maintaining left sum.
+**Pattern:** Prefix Sum
+**Key Idea:** Left sum == Right sum
+
+---
+
+### 🔹 `lc_120_triangle.cpp`
+
+**Problem:** Minimum Path Sum in Triangle
+**Approach:** Bottom-up DP to accumulate minimum path values.
+**Pattern:** Dynamic Programming
+**Key Idea:** Build solution from last row upwards
+
+---
+
+### 🔹 `lc_1981_min_abs_diff.cpp`
+
+**Problem:** Minimize Difference Between Target and Chosen Elements
+**Approach:** Use DP with set/bitset to track possible sums.
+**Pattern:** DP + State Space Optimization
+**Key Idea:** Track all reachable sums row by row
+
+---
+
+### 🔹 `lc_322_coin_change.cpp`
+
+**Problem:** Coin Change
+**Approach:** Bottom-up DP to find minimum coins for each amount.
+**Pattern:** Unbounded Knapsack (DP)
+**Key Idea:** dp[i] = min(dp[i - coin] + 1)
+
+---
+
+### 🔹 `rat_in_maze.cpp`
+
+**Problem:** Rat in a Maze
+**Approach:** Backtracking to explore all valid paths.
+**Pattern:** Recursion + Backtracking
+**Key Idea:** Try all directions, mark visited, backtrack
+
+---
+
+## 🚀 Summary
+
+* **Divide & Conquer:** Merge Sort
+* **Binary Search:** Rotated Array
+* **Dynamic Programming:** Triangle, Coin Change, Min Abs Diff
+* **Backtracking:** Rat in Maze
+* **Prefix Sum / Two Pointers:** Pivot Index, Merge Arrays
+
+---
